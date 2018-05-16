@@ -1,0 +1,10 @@
+docker run docker/whalesay cowsay boo
+
+docker run -i -t --rm ubuntu bash
+apt update
+apt install iputils-ping
+
+CTRL+p CTRL+q
+
+docker attach
+

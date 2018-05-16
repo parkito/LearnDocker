@@ -1,0 +1,16 @@
+docker run -i -t --rm ubuntu bash
+ping ya.ru
+apt update
+apt install iputils-ping
+exit
+
+docker run -i -t --rm ubuntu bash
+ping ya.ru
+
+docker commit
+
+docker history ubuntu
+docker diff IDubuntu
+docker log
+
+
