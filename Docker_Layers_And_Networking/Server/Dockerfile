@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine
-RUN mkdir /var/lib/user-service
-COPY /target/user-1.0-SNAPSHOT.jar /var/lib/user-service
-WORKDIR /var/lib/user-service
-EXPOSE 2144
-CMD ["java", "-jar", "user-1.0-SNAPSHOT.jar"]
+RUN mkdir /var/lib/server
+COPY /target/server-1.0.jar /var/lib/server
+WORKDIR /var/lib/server
+EXPOSE 2141
+CMD ["java", "-jar", "server-1.0.jar"]

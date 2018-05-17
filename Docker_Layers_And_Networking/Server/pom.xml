@@ -15,7 +15,6 @@
         <java.version>1.8</java.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <jackson.module.kotlin>2.9.4.1</jackson.module.kotlin>
-        <lombok.version>1.16.18</lombok.version>
         <kotlin.version>1.2.31</kotlin.version>
     </properties>
 
@@ -64,14 +63,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${liquibase.maven.plugin.version}</version>
-                <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
