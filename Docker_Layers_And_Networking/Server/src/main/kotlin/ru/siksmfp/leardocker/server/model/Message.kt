@@ -1,4 +1,4 @@
-package ru.siksmfp.leardocker.client.model
+package ru.siksmfp.leardocker.server.model
 
 import java.util.*
 

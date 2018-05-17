@@ -1,4 +1,4 @@
-package ru.siksmfp.leardocker.server;
+package ru.siksmfp.leardocker.client;
 
 import com.google.common.base.Predicates
 import org.springframework.boot.SpringApplication

@@ -1,6 +1,6 @@
-package ru.siksmfp.leardocker.client.repository
+package ru.siksmfp.leardocker.server.repository
 
-import ru.siksmfp.leardocker.client.model.Message
+import ru.siksmfp.leardocker.server.model.Message
 
 /**
  * @author Artem Karnov @date 5/17/2018.

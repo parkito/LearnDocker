@@ -1,4 +1,4 @@
-package ru.siksmfp.leardocker.client;
+package ru.siksmfp.leardocker.server;
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
