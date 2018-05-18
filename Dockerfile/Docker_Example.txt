@@ -1,0 +1,27 @@
+Demo
+
+docker run docker/whalesay cowsay boo
+
+docker run -i -t --rm ubuntu bash
+apt update
+apt install iputils-ping
+CTRL+p CTRL+q
+docker attach ContainerID
+
+docker run -d ubuntu apt update
+
+docker ps
+docker ps -a
+docker images
+
+docker rm 4jl
+docker rmi ubuntu
+
+
+Exers
+
+docker pull parkito/hellodocker
+
+docker run hellodocker
+
+docker run -it hellodocker ash
