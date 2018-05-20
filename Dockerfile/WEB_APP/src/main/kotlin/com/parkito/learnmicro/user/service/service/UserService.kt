@@ -1,6 +1,5 @@
 package com.parkito.learnmicro.user.service.service;
 
-import com.parkito.learnmicro.user.service.controller.RestUserClient
 import com.parkito.learnmicro.user.service.dto.UserDTO
 import com.parkito.learnmicro.user.service.entity.User
 import com.parkito.learnmicro.user.service.exception.value.BusinessLogicException
@@ -19,8 +18,6 @@ import java.util.*
 class UserService {
     @Autowired
     lateinit var userRepository: UserRepository
-    @Autowired
-    lateinit var restUserClient: RestUserClient
 
     @Transactional
     fun createUser(email: String, firstName: String, secondName: String): UserDTO {
@@ -34,28 +31,17 @@ class UserService {
         }
     }
 
-    fun findUserByEmail(email: String): UserDTO {
-        val user: User? = userRepository.findByEmail(email)
-        if (user != null) {
-            val docs = restUserClient.getAllClientDocuments(email)
-            var serials = Collections.emptyList<String>()
-            if (docs != null) {
-                serials = docs.map { d -> d.serial }
-            }
-            return UserDTO.fromEntity(user, serials)
-        } else {
-            throw ResourceNotFoundException("User with email = $email wasn't found")
-        }
+    fun findUserByEmail(email: String): User? {
+        return userRepository.findByEmail(email)
+
+    }
+
+    fun geAllUsers(): List<User> {
+        return userRepository.findAll()
     }
 
     @Transactional
     fun deleteUserByEmail(email: String) {
         userRepository.deleteByEmail(email)
-    }
-
-    fun getAllUsers(): List<UserDTO> {
-        return userRepository.findAll().map { u ->
-            UserDTO.fromEntity(u, restUserClient.getAllClientDocuments(u.email)!!.map { s -> s.serial })
-        }
     }
 }

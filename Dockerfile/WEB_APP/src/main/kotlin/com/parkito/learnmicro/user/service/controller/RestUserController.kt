@@ -1,10 +1,10 @@
 package com.parkito.learnmicro.user.service.controller;
 
 import com.parkito.learnmicro.user.service.dto.UserDTO
+import com.parkito.learnmicro.user.service.entity.User
 import com.parkito.learnmicro.user.service.service.UserService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController
  * artem.karnov@t-systems.com
  */
 @RestController
-@RequestMapping("/api/v2")
+@RequestMapping("/api/v1")
 class RestUserController {
     val logger = LoggerFactory.getLogger(javaClass)
 
@@ -34,7 +34,7 @@ class RestUserController {
     }
 
     @GetMapping("/find-user")
-    fun findUser(@RequestParam email: String): ResponseEntity<UserDTO> {
+    fun findUser(@RequestParam email: String): ResponseEntity<User?> {
         logger.info("In findUser(email = {})", email);
         return ResponseEntity(userService.findUserByEmail(email), HttpStatus.OK);
     }
@@ -47,8 +47,8 @@ class RestUserController {
     }
 
     @GetMapping("/get-all")
-    fun getAllUsers(): List<UserDTO> {
+    fun getAllUsers(): List<User> {
         logger.info("In getAllUsers()");
-        return userService.getAllUsers()
+        return userService.geAllUsers()
     }
 }
