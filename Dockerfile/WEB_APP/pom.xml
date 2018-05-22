@@ -95,25 +95,25 @@
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-        <!-- <plugins>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <imageName>parkito/${project.artifactId}</imageName>
-                    <baseImage>java:openjdk-8-jdk-alpine</baseImage>
-                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
-                    <resources>
-                        <!-- copy the service's jar file from target into the root directory of the image -->
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin> -->
+         <plugins>
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>docker-maven-plugin</artifactId>-->
+                <!--<version>1.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<imageName>parkito/${project.artifactId}</imageName>-->
+                    <!--<baseImage>java:openjdk-8-jdk-alpine</baseImage>-->
+                    <!--<entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>-->
+                    <!--<resources>-->
+                        <!--&lt;!&ndash; copy the service's jar file from target into the root directory of the image &ndash;&gt;-->
+                        <!--<resource>-->
+                            <!--<targetPath>/</targetPath>-->
+                            <!--<directory>${project.build.directory}</directory>-->
+                            <!--<include>${project.build.finalName}.jar</include>-->
+                        <!--</resource>-->
+                    <!--</resources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
