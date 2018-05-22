@@ -16,12 +16,3 @@ docker images
 
 docker rm 4jl
 docker rmi ubuntu
-
-
-Exers
-
-docker pull parkito/hellodocker
-
-docker run hellodocker
-
-docker run -it hellodocker ash

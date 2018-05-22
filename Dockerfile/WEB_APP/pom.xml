@@ -95,7 +95,7 @@
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-        <plugins>
+        <!-- <plugins>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -113,7 +113,7 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
