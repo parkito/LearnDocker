@@ -1,4 +1,5 @@
 Demo
+mvn clean package docker:build
 
 Exers
 
