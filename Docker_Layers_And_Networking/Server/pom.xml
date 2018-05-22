@@ -3,24 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.parkito.learndocker</groupId>
-    <artifactId>user</artifactId>
+    <groupId>com.parkito.leardocker</groupId>
+    <artifactId>server</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>User microservice</name>
-    <description>User microservice application</description>
+    <name>Server</name>
+    <description>Server</description>
 
     <properties>
         <java.version>1.8</java.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <jackson.module.kotlin>2.9.4.1</jackson.module.kotlin>
-        <lombok.version>1.16.18</lombok.version>
-        <liquibase.core.version>3.5.3</liquibase.core.version>
-        <springfox.swagger2.verson>2.6.1</springfox.swagger2.verson>
-        <springfox.swagger.ui.version>2.7.0</springfox.swagger.ui.version>
         <kotlin.version>1.2.31</kotlin.version>
-        <liquibase.maven.plugin.version>3.4.1</liquibase.maven.plugin.version>
     </properties>
 
     <parent>
@@ -48,10 +43,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
         </dependency>
         <dependency>
@@ -59,37 +50,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox.swagger2.verson}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox.swagger.ui.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.spotify/docker-maven-plugin -->
-        <dependency>
-            <groupId>com.spotify</groupId>
-            <artifactId>docker-maven-plugin</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -97,34 +61,8 @@
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
         <plugins>
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <imageName>parkito/${project.artifactId}</imageName>
-                    <baseImage>java:openjdk-8-jdk-alpine</baseImage>
-                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
-                    <resources>
-                        <!-- copy the service's jar file from target into the root directory of the image -->
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${liquibase.maven.plugin.version}</version>
-                <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

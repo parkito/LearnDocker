@@ -24,3 +24,17 @@ docker diff ContainerId
 docker inspect ContainerId
 
 docker run -it -v C:\Users\akarnov\Downloads\:/my -p 2142:2142 ubuntu bash
+
+Exers
+
+ docker run -it -p 2141:2141 --name layer-server --hostname=server layer-server
+
+ docker run -it --link=layer-server -p 2142:2142 layer-client
+
+ docker network create myntw
+
+ docker run -it -p 2141:2141 --name server --net=myntw layer-server
+
+ docker run -it --net=myntw -p 2142:2142 layer-client
+
+ docker run -it -v C:\Users\akarnov\Downloads\:/my -p 2142:2142 --net=myntw parkito/layer-client ash
