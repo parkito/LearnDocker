@@ -1,4 +1,12 @@
 Demo
+docker run -it ubuntu bash
+docker run -d -p 8080:80 nginx
+docker logs nginx
+docker exec -ti nginx bash
+
+docker run -d --name=db -e MYSQL_ROOT_PASSWORD=password mysql:5.7
+
+docker run -d --name=wp --link=db -p 80:80 -v C:\Users\akarnov\Downloads\tst:/var/www/html/wp-content/themes -e WORDPRESS_DB_HOST=db -e WORDPRESS_DB_PASSWORD=password wordpress:4.7
 
 docker run docker/whalesay cowsay boo
 
