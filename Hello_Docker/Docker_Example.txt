@@ -1,6 +1,6 @@
 Demo
 docker run -it ubuntu bash
-docker run -d -p 8080:80 nginx
+docker run -d --name server2 -p 8080:80 nginx
 docker logs nginx
 docker exec -ti nginx bash
 
