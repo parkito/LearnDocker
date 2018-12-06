@@ -1,0 +1,20 @@
+1) Create internal hyper-v switch
+
+docker-machine create --driver hyperv --hyperv-virtual-switch docker-internal manager
+docker-machine create --driver hyperv --hyperv-virtual-switch docker-internal worker1
+docker-machine create --driver hyperv --hyperv-virtual-switch docker-internal worker2
+
+docker-machine ip manager
+docker-machine ssh manager
+
+docker swarm init --advertise-addr 192.168.0.104:2376
+docker swarm join --token SWMTKN-1-646h3tvoj7ga1es4sbmpkxxbwcbw0hma7vc2x34k7cwntrt2nk-bxemm0ck5tnmi7t01xe7r826i 192.168.0.104:2377
+(port is important. 2377 works without sertificates)
+
+docker node ls
+docker info
+docker service ls
+docker node inspect worker1
+
+docker service create --replicas 2 -p 2142:2142 --name layer-client parkito/layer-client
+docker service ps layer-client
