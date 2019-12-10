@@ -1,0 +1,16 @@
+1) docker image history not-flat
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+6bcdb4f63abe        20 seconds ago      /bin/sh -c #(nop)  CMD ["/bin/sh" "-c" "cat …   0B
+9b1624bf7d38        20 seconds ago      /bin/sh -c echo "Hello, World!" > message.txt   14B
+cdf98d1859c1        8 months ago        /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
+<missing>           8 months ago        /bin/sh -c #(nop) ADD file:2e3a37883f56a4a27…   5.53MB
+
+2) docker run -d --name container not-flat
+
+3) docker export container > flat.tar
+
+4) cat flat.tar | docker import - flat
+
+5) docker image history flat
+IMAGE               CREATED             CREATED BY          SIZE                COMMENT
+63c997674acd        9 seconds ago                           5.53MB              
